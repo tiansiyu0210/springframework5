@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 @Entity
-public class author {
+public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,7 +17,7 @@ public class author {
     @JoinTable(name = "author_book_test",
                 joinColumns = {@JoinColumn(name = "author_id", referencedColumnName = "authorId")},
                 inverseJoinColumns = {@JoinColumn(name = "book_id", referencedColumnName = "bookId")})
-    private Set<book> books = new HashSet<>();
+    private Set<Book> Books = new HashSet<>();
 
     public Long getauthorId() {
         return authorId;
@@ -47,8 +47,8 @@ public class author {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        author author = (author) o;
-        return Objects.equals(authorId, author.authorId);
+        Author Author = (Author) o;
+        return Objects.equals(authorId, Author.authorId);
     }
 
     @Override

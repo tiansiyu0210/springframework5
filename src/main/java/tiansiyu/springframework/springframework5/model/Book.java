@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 @Entity
-public class book {
+public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,7 +14,7 @@ public class book {
     private String title;
 
     @ManyToMany(mappedBy = "books")
-    private Set<author> authors = new HashSet<>();
+    private Set<Author> Authors = new HashSet<>();
 
     public Long getBookId() {
         return bookId;
@@ -40,20 +40,20 @@ public class book {
         this.title = title;
     }
 
-    public Set<author> getAuthors() {
-        return authors;
+    public Set<Author> getAuthors() {
+        return Authors;
     }
 
-    public void setAuthors(Set<author> authors) {
-        this.authors = authors;
+    public void setAuthors(Set<Author> Authors) {
+        this.Authors = Authors;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        book book = (book) o;
-        return Objects.equals(bookId, book.bookId);
+        Book Book = (Book) o;
+        return Objects.equals(bookId, Book.bookId);
     }
 
     @Override
